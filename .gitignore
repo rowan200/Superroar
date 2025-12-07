@@ -1,9 +1,9 @@
 # Dependencies
 node_modules/
 
-# Build output
-dist/
-build/
+# Build output - NOT ignored for cPanel deployment
+# dist/
+# build/
 
 # Environment files
 .env
