@@ -2,13 +2,9 @@ import React, { useState } from 'react';
 import { MapPin, Truck, CheckCircle, AlertCircle } from 'lucide-react';
 
 // ============================================
-// CONFIGURATION - UPDATE WITH YOUR CPANEL URL
+// CONFIGURATION - YOUR CPANEL URL
 // ============================================
-// For development: use relative path or localhost
-// For production: use your full domain URL
-const API_URL = import.meta.env.PROD 
-  ? 'https://yourdomain.com/api/contact.php'  // UPDATE: Your production cPanel URL
-  : '/api/contact.php';                        // Dev server (with proxy) or full URL
+const API_URL = 'https://superoar.com/api/contact.php';
 
 export default function Contact() {
   const [formData, setFormData] = useState({

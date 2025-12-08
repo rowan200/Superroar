@@ -10,15 +10,15 @@
 // CONFIGURATION - UPDATE THESE VALUES
 // ============================================
 $config = [
-    'recipient_email' => 'your-email@yourdomain.com',  // Your email address to receive messages
+    'recipient_email' => 'sales@superoar.com',          // UPDATE: Your email address to receive messages
     'recipient_name'  => 'SUPEROAR Sales',              // Display name
-    'from_email'      => 'noreply@yourdomain.com',      // Must be an email on your cPanel domain
+    'from_email'      => 'noreply@superoar.com',        // From email on your domain
     'site_name'       => 'SUPEROAR',                    // Your site name
     'allowed_origins' => [                               // Allowed domains (for CORS)
         'http://localhost:5173',                         // Vite dev server
         'http://localhost:3000',                         // Alternative dev server
-        'https://yourdomain.com',                        // Your production domain
-        'https://www.yourdomain.com',                    // www version
+        'https://superoar.com',                          // Your production domain
+        'https://www.superoar.com',                      // www version
     ],
 ];
 
