@@ -10,7 +10,7 @@
 // CONFIGURATION - UPDATE THESE VALUES
 // ============================================
 $config = [
-    'recipient_email' => 'sales@superoar.com',          // UPDATE: Your email address to receive messages
+    'recipient_email' => 'rowthepro1@superoar.com',     // Your email address to receive messages
     'recipient_name'  => 'SUPEROAR Sales',              // Display name
     'from_email'      => 'noreply@superoar.com',        // From email on your domain
     'site_name'       => 'SUPEROAR',                    // Your site name

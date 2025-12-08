@@ -1,35 +1,65 @@
 import React from 'react';
+import { ArrowRight, Shield, Award, Truck } from 'lucide-react';
 
 export default function Hero() {
   return (
-    <section className="relative h-[700px] w-full mt-[100px]">
+    <section className="relative min-h-[700px] w-full mt-[100px]">
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&q=80&w=2000")' }}
       >
-        <div className="absolute inset-0 bg-black/40"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent"></div>
       </div>
 
-      {/* Content Overlay */}
-      <div className="container mx-auto px-4 h-full flex items-center justify-end relative z-10">
-        <div className="bg-white p-8 max-w-md shadow-2xl rounded-lg relative mt-20 md:mt-0 mr-0 md:mr-20">
-          {/* Price Tag Simulation (using existing colors) */}
-          <div className="absolute -top-4 right-4 bg-white border border-gray-200 px-4 py-1 shadow-sm text-sm font-bold text-gray-900 transform rotate-2">
-            PREMIUM QUALITY
+      {/* Content */}
+      <div className="container mx-auto px-4 h-full flex items-center relative z-10 py-20">
+        <div className="max-w-2xl">
+          <div className="inline-block bg-primary text-gray-900 px-4 py-1.5 rounded-full text-sm font-bold mb-6 uppercase tracking-wider">
+            Professional Grade Equipment
           </div>
           
-          <h1 className="text-3xl font-black text-gray-900 mb-4 leading-tight uppercase">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight">
             INDUSTRIAL POWER.<br />
-            <span className="text-[#D7C4A3]">BUILT FOR PROFESSIONALS.</span>
+            <span className="text-primary">BUILT TO LAST.</span>
           </h1>
-          <p className="text-gray-600 mb-6 text-sm font-medium leading-relaxed">
-            High-performance OEM pressure-washing gear engineered for the toughest jobs.
-            Experience the difference of professional grade equipment.
+          
+          <p className="text-gray-300 text-lg md:text-xl mb-8 leading-relaxed max-w-xl">
+            High-performance OEM pressure washing equipment engineered for contractors and professionals. 
+            Experience the difference of quality that delivers results.
           </p>
-          <button className="bg-[#D7C4A3] text-white px-8 py-3 w-full font-bold text-sm uppercase tracking-wider hover:bg-[#c5b08d] transition-colors rounded shadow-md">
-            Shop Now
-          </button>
+          
+          <div className="flex flex-col sm:flex-row gap-4 mb-12">
+            <a 
+              href="#contact" 
+              className="bg-primary text-gray-900 px-8 py-4 font-bold text-sm uppercase tracking-wider hover:bg-primary-dark transition-colors rounded shadow-lg flex items-center justify-center gap-2"
+            >
+              Get a Free Quote
+              <ArrowRight size={18} />
+            </a>
+            <a 
+              href="#products" 
+              className="bg-white/10 backdrop-blur text-white border border-white/30 px-8 py-4 font-bold text-sm uppercase tracking-wider hover:bg-white/20 transition-colors rounded flex items-center justify-center"
+            >
+              View Products
+            </a>
+          </div>
+
+          {/* Trust Badges */}
+          <div className="flex flex-wrap gap-6 text-white/80 text-sm">
+            <div className="flex items-center gap-2">
+              <Shield size={20} className="text-primary" />
+              <span>2-Year Warranty</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Award size={20} className="text-primary" />
+              <span>OEM Quality</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Truck size={20} className="text-primary" />
+              <span>Nationwide Shipping</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>

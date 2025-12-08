@@ -1,11 +1,17 @@
-import React, { useState } from 'react';
-import { Menu, X, ShoppingCart, Package } from 'lucide-react';
-import { useCart } from '../context/CartContext';
+import React, { useState, useEffect } from 'react';
+import { Menu, X, Phone } from 'lucide-react';
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { getCartCount, openCart } = useCart();
-  const cartCount = getCartCount();
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const navLinks = [
     { name: 'Products', href: '#products' },
@@ -19,18 +25,18 @@ export default function Header() {
       {/* Top Bar */}
       <div className="bg-gray-900 text-white py-2 text-center text-xs font-medium tracking-wide">
         <span className="hidden sm:inline">🚚 </span>
-        NORTH HOUSTON BASED • NATIONWIDE SHIPPING • FREE SHIPPING OVER $500
+        NORTH HOUSTON BASED • NATIONWIDE SHIPPING • PROFESSIONAL GRADE EQUIPMENT
       </div>
 
       {/* Main Header */}
-      <div className="bg-primary shadow-md">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+      <div className={`bg-primary shadow-md transition-all duration-300 ${isScrolled ? 'py-2' : 'py-4'}`}>
+        <div className="container mx-auto px-4 flex justify-between items-center">
           {/* Logo */}
           <a href="#" className="flex items-center gap-5">
             <img 
               src="/logo/Superroar logo.png" 
               alt="SUPEROAR" 
-              className="h-14 md:h-16 w-auto"
+              className={`transition-all duration-300 ${isScrolled ? 'h-10 md:h-12' : 'h-14 md:h-16'} w-auto`}
             />
           </a>
 
@@ -45,35 +51,16 @@ export default function Header() {
 
           {/* Actions */}
           <div className="flex items-center gap-4">
-            <a href="#" className="hidden md:flex items-center gap-2 text-white hover:text-gray-200 transition-colors">
-              <Package size={18} />
-              <span className="font-bold text-sm">Track</span>
+            <a href="tel:5551234567" className="hidden md:flex items-center gap-2 text-white hover:text-gray-200 transition-colors">
+              <Phone size={18} />
+              <span className="font-bold text-sm">(555) 123-4567</span>
             </a>
-            
-            <button 
-              onClick={openCart}
-              className="relative p-2 text-white hover:text-gray-200 transition-colors"
-            >
-              <ShoppingCart size={24} />
-              {cartCount > 0 && (
-                <span className="absolute -top-1 -right-1 bg-gray-900 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold">
-                  {cartCount}
-                </span>
-              )}
-            </button>
 
             <a 
               href="#contact" 
-              className="hidden md:inline-block bg-white text-primary px-5 py-2 rounded font-bold text-sm hover:bg-gray-100 transition-colors uppercase tracking-wider"
+              className="hidden md:inline-block bg-white text-gray-900 px-6 py-2.5 rounded font-bold text-sm hover:bg-gray-100 transition-colors uppercase tracking-wider shadow-md"
             >
-              Contact Sales
-            </a>
-
-            <a 
-              href="#products" 
-              className="hidden lg:inline-block bg-gray-900 text-white px-5 py-2 rounded font-bold text-sm hover:bg-gray-800 transition-colors uppercase tracking-wider"
-            >
-              Shop Now
+              Get a Quote
             </a>
 
             {/* Mobile Menu Toggle */}
@@ -102,17 +89,18 @@ export default function Header() {
               ))}
               <a 
                 href="#contact" 
-                className="bg-white text-primary px-5 py-3 rounded font-bold text-center mt-2"
+                className="bg-white text-gray-900 px-5 py-3 rounded font-bold text-center mt-2 shadow-md"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Contact Sales
+                Get a Quote
               </a>
               <a 
-                href="#products" 
-                className="bg-gray-900 text-white px-5 py-3 rounded font-bold text-center"
+                href="tel:5551234567" 
+                className="bg-gray-900 text-white px-5 py-3 rounded font-bold text-center flex items-center justify-center gap-2"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Shop Now
+                <Phone size={18} />
+                Call Us Now
               </a>
             </nav>
           </div>
